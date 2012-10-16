@@ -31,22 +31,29 @@ public class BasicBullet : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter(Collision collision) {
-		bulletCollide(collision);
+		BulletCollide(collision);
 	}
 	
 	void OnCollisionStay(Collision collision) {
-		bulletCollide(collision);
+		BulletCollide(collision);
 	}
 	
-	void bulletCollide(Collision collision) {
+	void BulletCollide(Collision collision) {
 		// If the collision is with the player, inform the player script
 		// with how much damage to deal
-		if(collision.gameObject.CompareTag("Player") && !hasHitPlayer) {
+		if(collision.transform.CompareTag("Player") && !hasHitPlayer) {
 			collision.gameObject.SendMessage("doDamage", damage);
 			hasHitPlayer = true;
 			
 		}
-			
+		
 		Destroy(gameObject);
 	}
+	
+	void PlayerCollision(GameObject player) {
+		player.SendMessage ("doDamage", damage);
+		hasHitPlayer = true;
+	}
+	
+	
 }
