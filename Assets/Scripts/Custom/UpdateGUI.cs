@@ -26,8 +26,8 @@ public class UpdateGUI : MonoBehaviour {
 	
 	void OnGUI () {
 		// Update player health & score
-		playerHealth.text = "Health: " + player_status.currentHealth;
-		playerScore.text = "Score: " + player_status.currentScore;
+		playerHealth.text = "Health: " + player_status.getHealth();
+		playerScore.text = "Score: " + player_status.getScore();
 		
 		// Move the location text's position based on where the player is
 		// Keep in bounds, leave some padding

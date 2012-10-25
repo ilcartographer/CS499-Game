@@ -13,9 +13,19 @@ public class PlayerCollision : MonoBehaviour {
 	
 	}
 	
+	/*
 	void OnControllerColliderHit(ControllerColliderHit hit) {
+		print ("collision");
 		if(hit.gameObject.tag == "Bullet") {
 			Destroy(hit.gameObject);
 		}
 	}
+	
+	void OnTriggerEnter(Collider hit) {
+		print (hit.gameObject.tag);
+		if(hit.gameObject.tag == "Bullet") {
+			Destroy(hit.gameObject);
+		}
+	}
+	*/
 }

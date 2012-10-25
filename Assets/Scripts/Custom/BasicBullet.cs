@@ -30,15 +30,15 @@ public class BasicBullet : MonoBehaviour {
 		}
 	}
 	
-	void OnCollisionEnter(Collision collision) {
+	void OnTriggerEnter(Collider collision) {
 		BulletCollide(collision);
 	}
 	
-	void OnCollisionStay(Collision collision) {
+	void OnTriggerStay(Collider collision) {
 		BulletCollide(collision);
 	}
 	
-	void BulletCollide(Collision collision) {
+	void BulletCollide(Collider collision) {
 		// If the collision is with the player, inform the player script
 		// with how much damage to deal
 		if(collision.transform.CompareTag("Player") && !hasHitPlayer) {
