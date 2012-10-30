@@ -11,6 +11,7 @@ public class AutoFire : MonoBehaviour {
 	public float fireFrequency = .5f; // how many per second
 	public float bulletSpeed = 10f;
 	
+	private bool isFiring = true;
 	private float lastFireTime = -1.0f;
 		
 	// Use this for initialization
@@ -20,11 +21,20 @@ public class AutoFire : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		if(Time.time > lastFireTime + 1 / fireFrequency ) {
-			FireBullet();
-			
-			lastFireTime = Time.time;
+		if(isFiring) {
+			if(Time.time > lastFireTime + 1 / fireFrequency ) {
+				FireBullet();
+				
+				lastFireTime = Time.time;
+			}
+		}
+	}
+	
+	void DisableFire() {
+		isFiring = false;
+		foreach(GameObject bullet in GameObject.FindGameObjectsWithTag("Bullet"))
+		{
+		    Destroy(bullet);
 		}
 	}
 	

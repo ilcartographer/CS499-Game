@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class ChasingEnemy : MonoBehaviour {
-	Transform playerModel;
+	public Transform playerModel;
 	Transform currentEnemy;
 	Transform muzzle;
 
@@ -17,7 +17,7 @@ public class ChasingEnemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		playerModel = GameObject.FindGameObjectWithTag("Player").transform;
+		
 	}
 
 	// Update is called once per frame

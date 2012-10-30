@@ -14,10 +14,7 @@ public class SwarmEnemy : MonoBehaviour {
 	}
 	
 	void Update () {
-		
 		centralEnemy.Rotate(0.0f, 0.0f, -1 * rotationSpeed * Time.deltaTime);
-		//centralEnemy.RotateAround(new Vector3(0, 0, 1), rotationSpeed * Time.deltaTime);	
-		//centralEnemy.RotateAround(centralEnemy.position, new Vector3(0, 0, 1), rotationSpeed * Time.deltaTime);
 		
 		Vector3 movementVector = player.transform.position - centralEnemy.position;
 		if(movementVector.magnitude >= chaseDistance) {

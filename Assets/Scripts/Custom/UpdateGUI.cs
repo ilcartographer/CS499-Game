@@ -6,6 +6,8 @@ public class UpdateGUI : MonoBehaviour {
 	public GUIText playerScore;
 	public GUIText locationText;
 	
+	public Texture2D[] healthTextures = new Texture2D[5];
+	public GUITexture healthIndicator;
 	
 	public PlayerStatus player_status; 
 	
@@ -36,6 +38,19 @@ public class UpdateGUI : MonoBehaviour {
 		locationText.transform.position = new Vector3(percentage,
 									locationText.transform.position.y,
 									locationText.transform.position.z);
+		
+		//todo: expose start health and use percentages
+		if(player_status.getHealth() >= 90) {
+			healthIndicator.texture = healthTextures[0];
+		} else if(player_status.getHealth() >= 60) {
+			healthIndicator.texture = healthTextures[1];
+		} else if(player_status.getHealth() >= 30) {
+			healthIndicator.texture = healthTextures[2];
+		} else if(player_status.getHealth() > 0) {
+			healthIndicator.texture = healthTextures[3];
+		} else {
+			healthIndicator.texture = healthTextures[4];
+		}
 			
 	}
 }
